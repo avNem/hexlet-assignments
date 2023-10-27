@@ -33,19 +33,3 @@ public class App {
         return search == checkSumWord;
     }
 }
-//    public static boolean scrabble(String string, String word) {
-//        int search = 0;
-//        int checkSumWord = word.length();
-//        List<String> strings = new ArrayList<>(Arrays.asList(string.split("")));
-//
-//        for(int i = 0; i < strings.size(); i++) {
-//            if(word.toLowerCase().contains(strings.get(i).toLowerCase())) {
-//                search++;
-//                strings.remove(i);
-//                i--;
-//            }
-//        }
-//        return search == checkSumWord;
-//    }
-//}
-//END
