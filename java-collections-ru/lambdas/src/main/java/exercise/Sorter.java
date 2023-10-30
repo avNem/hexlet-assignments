@@ -19,11 +19,12 @@ public class Sorter {
         List<String> men = Sorter.takeOldestMans(users);
         System.out.println(men);
 
+
     }
     public static List<String> takeOldestMans(List<Map<String, String>> users) {
         return users.stream()
                 .filter(x -> x.get("gender").equals("male"))
-                .sorted(Comparator.comparing(x -> x.get("birthday")))
+                .sorted(Comparator.comparing(x -> LocalDate.parse(x.get("birthday"))))
                 .map(e -> e.get("name"))
                 .collect(Collectors.toList());
     }
