@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java-collections-ru/generics" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java-collections-ru/generics" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java-collections-ru/lists" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java-collections-ru/lists" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java-collections-ru/maps" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java-collections-ru/maps" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java-collections-ru/tests" />
+        <option name="gradleJvm" value="corretto-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/java-collections-ru/tests" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
