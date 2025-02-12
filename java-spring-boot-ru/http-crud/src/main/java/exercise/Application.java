@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import exercise.model.Post;
@@ -28,13 +27,15 @@ public class Application {
 
     // BEGIN
     @GetMapping("/posts")
-    public List<Post> showAll(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    public List<Post> showAll() {
+        return posts;
     }
 
     @GetMapping("/posts/{id}")
-    public Post showById(@PathVariable int id) {
-        return posts.get(id);
+    public Optional<Post> showById(@PathVariable String id) {
+        return posts.stream()
+                .filter(post -> post.getId().equals(id))
+                .findFirst();
     }
 
     @PostMapping("")
@@ -44,19 +45,22 @@ public class Application {
     }
 
     @PutMapping("/posts/{id}")
-    public Post update(@PathVariable int id, @RequestBody Post data) {
-        var maybePost = posts.get(id);
+    public Post update(@PathVariable String id, @RequestBody Post data) {
+        var maybePost = posts.stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst();
 
-        if (maybePost != null) {
-            maybePost.setTitle(data.getTitle());
-            maybePost.setBody(data.getBody());
+        if (maybePost.isPresent()) {
+            var post = maybePost.get();
+            post.setTitle(data.getTitle());
+            post.setBody(data.getBody());
         }
         return data;
     }
 
     @DeleteMapping("/posts/{id}")
-    public void deleteById(@PathVariable int id) {
-        posts.remove(id);
+    public void deleteById(@PathVariable String id) {
+        posts.removeIf(post -> post.getId().equals(id));
     }
     // END
 }
